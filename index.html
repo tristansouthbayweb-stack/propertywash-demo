@@ -25,11 +25,13 @@
             color: white;
             overflow-x: hidden;
         }
+        
+        /* Navigation */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            padding: 1.5rem 4rem;
+            padding: 1rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,6 +59,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             letter-spacing: 0.05em;
+            color: white;
         }
         .nav-links {
             display: flex;
@@ -87,96 +90,90 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
-        section {
+        
+        /* Hero Section with Background Image */
+        .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 0 10%;
+            overflow: hidden;
         }
-        .section-content { max-width: 650px; }
-        .section-number {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--aqua);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: flex;
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(5, 13, 24, 0.85) 0%, rgba(10, 22, 40, 0.7) 100%),
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+        }
+        .hero-badge {
+            display: inline-flex;
             align-items: center;
-            gap: 1rem;
-        }
-        .section-number::before {
-            content: '';
-            width: 40px; height: 1px;
-            background: var(--aqua);
-        }
-        h1, h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(3rem, 7vw, 6rem);
-            font-weight: 700;
-            line-height: 1.05;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid var(--aqua);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--aqua);
             margin-bottom: 1.5rem;
-            text-transform: uppercase;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--aqua);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
         h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
             background: linear-gradient(135deg, white 0%, var(--aqua) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        p {
-            font-size: 1.125rem;
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        .hero-desc {
+            font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.8;
-            max-width: 500px;
+            margin-bottom: 2.5rem;
+            max-width: 550px;
         }
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-top: 2rem;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-            margin-top: 2rem;
-        }
-        .service-item {
-            padding: 1.75rem;
-            background: rgba(0, 102, 255, 0.08);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            transition: all 0.3s;
-        }
-        .service-item:hover {
-            border-color: var(--aqua);
-            transform: translateY(-5px);
-        }
-        .service-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-        .service-name {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-        .service-desc {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
+        
+        /* CTA Buttons */
         .cta-group {
             display: flex;
             gap: 1rem;
-            margin-top: 2.5rem;
             flex-wrap: wrap;
         }
         .btn {
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 100px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -193,31 +190,129 @@
             box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
         }
         .btn-secondary {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
         .btn-secondary:hover {
             border-color: var(--aqua);
             color: var(--aqua);
         }
-        .features-grid {
+        
+        /* Section Styles */
+        section {
+            position: relative;
+            padding: 8rem 10%;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+        .section-number {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--aqua);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            color: white;
+        }
+        .section-desc {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+        
+        /* Services Grid with Images */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
         }
-        .feature-card {
-            padding: 2rem;
+        .service-card {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--aqua);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.2);
+        }
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .service-content {
+            padding: 1.5rem;
+        }
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .service-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .service-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+        
+        /* Drone Section */
+        .drone-section {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+        }
+        .drone-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .drone-image {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        .drone-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .drone-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .drone-feature {
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
             text-align: center;
         }
-        .feature-icon-box {
+        .drone-feature-icon {
             width: 60px; height: 60px;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
             background: linear-gradient(135deg, var(--ocean) 0%, var(--aqua) 100%);
             border-radius: 50%;
             display: flex;
@@ -225,25 +320,91 @@
             justify-content: center;
             font-size: 1.75rem;
         }
-        .feature-title {
+        .drone-feature-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
-        .feature-desc {
-            font-size: 0.9rem;
+        .drone-feature-desc {
+            font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.6);
         }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(180deg, var(--darker) 0%, rgba(0, 102, 255, 0.1) 100%);
+        }
+        .contact-card {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+        .contact-item {
+            text-align: center;
+        }
+        .contact-item-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-item-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+        .contact-item-value {
+            font-size: 1rem;
+            color: white;
+        }
+        
+        /* Scroll Progress */
         .scroll-progress {
             position: fixed;
             top: 0; left: 0;
-            height: 2px;
+            height: 3px;
             background: linear-gradient(90deg, var(--ocean) 0%, var(--aqua) 100%);
             z-index: 1001;
             transform-origin: left;
             transform: scaleX(0);
         }
+        
+        /* Loading Screen */
         #loader {
             position: fixed;
             top: 0; left: 0;
@@ -278,13 +439,19 @@
             background: linear-gradient(90deg, var(--ocean) 0%, var(--aqua) 100%);
             transition: width 0.3s;
         }
+        
+        /* Responsive */
         @media (max-width: 1024px) {
-            .features-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .drone-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-info { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             nav { padding: 1rem 1.5rem; }
             .nav-links { display: none; }
-            section { padding: 0 5%; }
+            .hero { padding: 6rem 5% 4rem; }
+            section { padding: 4rem 5%; }
             .services-grid { grid-template-columns: 1fr; }
             .cta-group { flex-direction: column; }
         }
@@ -306,114 +473,186 @@
             <span class="logo-text">PROPERTY WASH</span>
         </a>
         <ul class="nav-links">
-            <li><a href="#intro">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#drone">Drone</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" class="nav-cta">Get Quote</a>
     </nav>
 
-    <section id="intro">
-        <div class="section-content">
-            <div class="section-number">01 / Manhattan Beach</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Open Now — Mon-Sun 8AM-8PM</div>
             <h1>Pressure Washing Redefined</h1>
-            <p>Our pressure washing services aren't just about cleaning — they're about restoring beauty and extending the life of your property. Every sweep is a stroke of care and quality.</p>
+            <p class="hero-subtitle">Manhattan Beach's Premier Exterior Cleaning</p>
+            <p class="hero-desc">Our pressure washing services aren't just about cleaning — they're about restoring beauty and extending the life of your property. Every sweep is a stroke of care and quality.</p>
             <div class="cta-group">
                 <a href="#contact" class="btn btn-primary">Get Free Quote →</a>
-                <a href="#services" class="btn btn-secondary">Our Services</a>
+                <a href="#services" class="btn btn-secondary">View Services</a>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services">
-        <div class="section-content" style="max-width: 900px;">
-            <div class="section-number">02 / What We Do</div>
+        <div class="section-header">
+            <div class="section-number">Our Services</div>
             <h2>Residential & Commercial</h2>
-            <p>From house washing to parking garages, we deliver pristine results that protect your investment and boost curb appeal.</p>
-            <div class="glass-card">
-                <div class="services-grid">
-                    <div class="service-item">
-                        <div class="service-icon">🏠</div>
-                        <div class="service-name">House Washing</div>
-                        <div class="service-desc">Pristine exterior cleaning</div>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon">🏢</div>
-                        <div class="service-name">Building Washing</div>
-                        <div class="service-desc">Commercial structures</div>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon">🚗</div>
-                        <div class="service-name">Driveway</div>
-                        <div class="service-desc">Lift toughest stains</div>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon">🪟</div>
-                        <div class="service-name">Window Cleaning</div>
-                        <div class="service-desc">Crystal-clear finish</div>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon">🏖️</div>
-                        <div class="service-name">Patio Cleaning</div>
-                        <div class="service-desc">Perfect outdoor spaces</div>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-icon">🛒</div>
-                        <div class="service-name">Storefront</div>
-                        <div class="service-desc">Impress customers</div>
-                    </div>
+            <p class="section-desc">From house washing to parking garages, we deliver pristine results that protect your investment and boost curb appeal.</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600" alt="House Washing" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">🏠</div>
+                    <div class="service-name">House Washing</div>
+                    <div class="service-desc">Restore your home's exterior beauty with our gentle yet effective cleaning.</div>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Driveway Cleaning" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">🚗</div>
+                    <div class="service-name">Driveway & Concrete</div>
+                    <div class="service-desc">Remove stubborn stains and restore your concrete surfaces to like-new condition.</div>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Patio Cleaning" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">🏖️</div>
+                    <div class="service-name">Patio & Deck</div>
+                    <div class="service-desc">Enjoy outdoor living spaces that look fresh and inviting year-round.</div>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600" alt="Commercial Building" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">🏢</div>
+                    <div class="service-name">Commercial Buildings</div>
+                    <div class="service-desc">Professional cleaning for offices, storefronts, and industrial properties.</div>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600" alt="Window Cleaning" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">🪟</div>
+                    <div class="service-name">Window Cleaning</div>
+                    <div class="service-desc">Crystal-clear, streak-free windows that enhance your property's appearance.</div>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600" alt="Roof Cleaning" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">🏠</div>
+                    <div class="service-name">Roof Cleaning</div>
+                    <div class="service-desc">Protect and extend the life of your roof with our specialized cleaning.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="drone">
-        <div class="section-content" style="max-width: 800px;">
-            <div class="section-number">03 / The Future</div>
+    <!-- Drone Section -->
+    <section id="drone" class="drone-section">
+        <div class="section-header">
+            <div class="section-number">The Future</div>
             <h2>Drone Pressure Washing</h2>
-            <p>The future of exterior cleaning. High-tech drones with high-pressure water jets reach challenging areas without scaffolding or ladders.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon-box">🚁</div>
-                    <h3 class="feature-title">No Ladders</h3>
-                    <p class="feature-desc">Access high buildings safely</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon-box">🎯</div>
-                    <h3 class="feature-title">Precision</h3>
-                    <p class="feature-desc">Target complex architecture</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon-box">⚡</div>
-                    <h3 class="feature-title">Fast</h3>
-                    <p class="feature-desc">Quicker than traditional methods</p>
+            <p class="section-desc">The future of exterior cleaning is here. High-tech drones with high-pressure water jets reach challenging areas safely.</p>
+        </div>
+        
+        <div class="drone-grid">
+            <div class="drone-image">
+                <img src="https://images.unsplash.com/photo-1506947411487-a56738267384?w=800" alt="Drone washing building">
+            </div>
+            <div>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 2rem; margin-bottom: 1rem;">Revolutionary Technology</h3>
+                <p style="color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 2rem;">Combining high-tech drones with high-pressure water jets to reach the most challenging and delicate areas without scaffolding or ladders. Perfect for high buildings and complex architecture.</p>
+                
+                <div class="drone-features">
+                    <div class="drone-feature">
+                        <div class="drone-feature-icon">🚁</div>
+                        <div class="drone-feature-title">No Ladders</div>
+                        <div class="drone-feature-desc">Access high buildings safely</div>
+                    </div>
+                    <div class="drone-feature">
+                        <div class="drone-feature-icon">🎯</div>
+                        <div class="drone-feature-title">Precision</div>
+                        <div class="drone-feature-desc">Target exact spots accurately</div>
+                    </div>
+                    <div class="drone-feature">
+                        <div class="drone-feature-icon">⚡</div>
+                        <div class="drone-feature-title">Fast</div>
+                        <div class="drone-feature-desc">Quicker than traditional methods</div>
+                    </div>
+                    <div class="drone-feature">
+                        <div class="drone-feature-icon">🛡️</div>
+                        <div class="drone-feature-title">Safe</div>
+                        <div class="drone-feature-desc">Minimize risk to workers</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="why-us">
-        <div class="section-content">
-            <div class="section-number">04 / Why Choose Us</div>
-            <h2>The Property Wash Difference</h2>
-            <p>We understand coastal living challenges — salt, sand, and ocean mist that take a toll on your property. Our services protect your investment.</p>
-            <div class="cta-group">
-                <a href="#contact" class="btn btn-primary">Schedule Service →</a>
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="section-header">
+            <div class="section-number">Our Work</div>
+            <h2>Before & After</h2>
+            <p class="section-desc">See the dramatic difference our professional pressure washing services can make.</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400" alt="Clean driveway">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400" alt="Clean house">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400" alt="Clean deck">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400" alt="Clean patio">
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="section-content" style="text-align: center; max-width: 700px; margin: 0 auto;">
-            <div class="section-number" style="justify-content: center;">05 / Get Started</div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <div class="section-number">Get Started</div>
             <h2>Ready for a Cleaner Property?</h2>
-            <p>Get a free quote for your Manhattan Beach property. We bring care, quality, and cutting-edge technology.</p>
+            <p class="section-desc">Get a free quote for your Manhattan Beach property. We bring care, quality, and cutting-edge technology.</p>
+        </div>
+        
+        <div class="contact-card">
             <div class="cta-group" style="justify-content: center;">
                 <a href="tel:310-555-0199" class="btn btn-primary">Call (310) 555-0199 →</a>
                 <a href="mailto:info@propertywash.com" class="btn btn-secondary">Email Us</a>
             </div>
-            <p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.5);">Serving Manhattan Beach & surrounding areas</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div class="contact-item-label">Location</div>
+                    <div class="contact-item-value">Manhattan Beach, CA</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">🕐</div>
+                    <div class="contact-item-label">Hours</div>
+                    <div class="contact-item-value">Mon-Sun 8AM-8PM</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">🚨</div>
+                    <div class="contact-item-label">Emergency</div>
+                    <div class="contact-item-value">24/7 Available</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -446,24 +685,17 @@
             }
         });
 
-        // Section animations
-        gsap.utils.toArray('section').forEach((section) => {
-            gsap.from(section.querySelector('.section-content'), {
-                y: 60,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 70%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
+        // Animations
+        gsap.from('.hero-content', {
+            y: 60,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.5
         });
 
-        // Service cards stagger
-        gsap.from('.service-item', {
-            y: 40,
+        gsap.from('.service-card', {
+            y: 50,
             opacity: 0,
             duration: 0.6,
             stagger: 0.1,
@@ -474,15 +706,26 @@
             }
         });
 
-        // Feature cards stagger
-        gsap.from('.feature-card', {
-            y: 50,
+        gsap.from('.drone-feature', {
+            y: 40,
             opacity: 0,
-            duration: 0.7,
-            stagger: 0.15,
+            duration: 0.5,
+            stagger: 0.1,
             ease: 'power2.out',
             scrollTrigger: {
-                trigger: '#drone',
+                trigger: '.drone-features',
+                start: 'top 70%'
+            }
+        });
+
+        gsap.from('.gallery-item', {
+            scale: 0.9,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '#gallery',
                 start: 'top 60%'
             }
         });
