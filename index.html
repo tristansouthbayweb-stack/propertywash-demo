@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Wash | Premium Pressure Washing Manhattan Beach</title>
+    <meta name="description" content="Top-of-the-line pressure washing services in Manhattan Beach. Drone washing, residential & commercial cleaning.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #0066FF;
+            --primary-light: #4D94FF;
+            --primary-dark: #0047B3;
+            --water: #00D4FF;
+            --dark: #0A1628;
+            --darker: #050D18;
+            --glass-bg: rgba(0, 102, 255, 0.05);
+            --glass-border: rgba(0, 212, 255, 0.15);
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 13, 24, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--water) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--water); }
+
+        .nav-cta {
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--water) 100%);
+            color: white;
+            font-weight: 600;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        .section-content { max-width: 650px; }
+
+        .section-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--water);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-number::before {
+            content: '';
+            width: 40px; height: 1px;
+            background: var(--water);
+        }
+
+        h1, h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            background: linear-gradient(135deg, white 0%, var(--water) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 { color: white; }
+
+        p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            max-width: 550px;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            padding: 1.75rem;
+            background: rgba(0, 102, 255, 0.08);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+            border-color: var(--water);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.125rem 2.25rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--water) 100%);
+            color: white;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--water);
+            color: var(--water);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--water);
+        }
+
+        .feature-icon {
+            width: 70px; height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--water) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .feature-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-text {
+            font-size: 1.25rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--water) 100%);
+            z-index: 1001;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid, .features-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            section { padding: 0 5%; }
+            .cta-group { flex-direction: column; }
+        }
+
+        /* Ambient background glow */
+        .ambient-glow {
+            position: fixed;
+            width: 800px; height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-1 {
+            top: -400px;
+            right: -400px;
+        }
+
+        .glow-2 {
+            bottom: -400px;
+            left: -400px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.06) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-mark">💧</div>
+            <span class="logo-text">PROPERTY WASH</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#intro">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#drone">Drone</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Get Free Quote</a>
+    </nav>
+
+    <section id="intro">
+        <div class="section-content">
+            <div class="section-number">01 / Manhattan Beach</div>
+            <h1>Pressure Washing Redefined</h1>
+            <p>Top-of-the-line pressure washing services in Manhattan Beach. We don't just clean — we restore beauty and extend the life of your property with cutting-edge drone technology.</p>
+            <div class="cta-group">
+                <a href="#contact" class="btn btn-primary">Get Free Quote →</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-content">
+            <div class="section-number">02 / What We Do</div>
+            <h2>Residential & Commercial</h2>
+            <p>From house washing to parking garages, we deliver pristine results that protect your investment and boost curb appeal.</p>
+            <div class="glass-card">
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">🏠</div>
+                        <div class="service-name">House Washing</div>
+                        <div class="service-desc">Pristine exterior cleaning that preserves your home</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🏢</div>
+                        <div class="service-name">Building Washing</div>
+                        <div class="service-desc">Commercial structures & office buildings</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🚗</div>
+                        <div class="service-name">Driveway & Concrete</div>
+                        <div class="service-desc">Lift the toughest stains instantly</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🪟</div>
+                        <div class="service-name">Window Cleaning</div>
+                        <div class="service-desc">Crystal-clear streak-free finish</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🏖️</div>
+                        <div class="service-name">Patio & Deck</div>
+                        <div class="service-desc">Perfect outdoor living spaces</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🛒</div>
+                        <div class="service-name">Storefront</div>
+                        <div class="service-desc">Impress every customer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="drone">
+        <div class="section-content" style="max-width: 850px;">
+            <div class="section-number">03 / The Future</div>
+            <h2>Drone Pressure Washing</h2>
+            <p>The future of exterior cleaning in Manhattan Beach. High-tech drones combined with high-pressure water jets reach challenging areas without scaffolding or ladders.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚁</div>
+                    <h3 class="feature-title">No Ladders Needed</h3>
+                    <p class="feature-desc">Access high buildings & complex architecture safely</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Precision Cleaning</h3>
+                    <p class="feature-desc">Target exact spots with pinpoint accuracy</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-desc">Complete jobs quicker than traditional methods</p>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <p class="highlight-text">✨ Perfect for high buildings, complex architecture, and areas where traditional washing poses safety risks</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us">
+        <div class="section-content">
+            <div class="section-number">04 / Why Choose Us</div>
+            <h2>The Property Wash Difference</h2>
+            <p>We understand the unique challenges of coastal living in Manhattan Beach — salt, sand, and ocean mist take a toll on your property. Our professional services protect your investment.</p>
+            <div class="glass-card">
+                <div class="services-grid" style="margin-top: 0;">
+                    <div class="service-item" style="text-align: center;">
+                        <div class="service-icon">🛡️</div>
+                        <div class="service-name">Protect Investment</div>
+                        <div class="service-desc">Remove mold, mildew & grime that damage surfaces</div>
+                    </div>
+                    <div class="service-item" style="text-align: center;">
+                        <div class="service-icon">🏆</div>
+                        <div class="service-name">Boost Curb Appeal</div>
+                        <div class="service-desc">Instant transformation that impresses</div>
+                    </div>
+                    <div class="service-item" style="text-align: center;">
+                        <div class="service-icon">⏱️</div>
+                        <div class="service-name">Extend Lifespan</div>
+                        <div class="service-desc">Regular washing prevents costly repairs</div>
+                    </div>
+                    <div class="service-item" style="text-align: center;">
+                        <div class="service-icon">🌊</div>
+                        <div class="service-name">Coastal Experts</div>
+                        <div class="service-desc">We know Manhattan Beach conditions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-content" style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <div class="section-number" style="justify-content: center;">05 / Get Started</div>
+            <h2>Ready for a Cleaner Property?</h2>
+            <p>Get a free quote for your Manhattan Beach property. We bring the care, quality, and cutting-edge technology your home or business deserves.</p>
+            <div class="cta-group" style="justify-content: center;">
+                <a href="tel:310-555-0199" class="btn btn-primary">Call (310) 555-0199 →</a>
+                <a href="mailto:info@propertywash.com" class="btn btn-secondary">Email Us</a>
+            </div>
+            <p style="margin-top: 2.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.5);">📍 Serving Manhattan Beach & surrounding South Bay areas</p>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Scroll Progress Bar
+        gsap.to('#scroll-progress', {
+            scaleX: 1,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 0.3
+            }
+        });
+
+        // Section animations
+        gsap.utils.toArray('section').forEach((section, i) => {
+            gsap.from(section.querySelector('.section-content'), {
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 70%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Service cards stagger
+        gsap.from('.service-item', {
+            y: 40,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '#services',
+                start: 'top 60%'
+            }
+        });
+
+        // Feature cards stagger
+        gsap.from('.feature-card', {
+            y: 50,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '#drone',
+                start: 'top 60%'
+            }
+        });
+    </script>
+</body>
+</html>
